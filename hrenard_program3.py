@@ -29,10 +29,10 @@ def runsim(
 
 	total_pop = 1000
 	
-	S[0] = total_pop - 1
+	S[0] = total_pop - 100
 	E[0] = 0
 	Q[0] = 0
-	I[0] = 1
+	I[0] = 100
 	R[0] = 0
 	D[0] = 0
 
