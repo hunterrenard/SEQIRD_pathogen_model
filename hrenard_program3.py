@@ -9,7 +9,7 @@ def runsim(
 	contact_factor = .8,                          		# (contact / day) / person
 	mean_incubation = 9,                               	# day
 	mean_quarantine = 10,					# day
-	mean_death = 15,                                 	# day
+	mean_death = 25,                                 	# day
 	plot = True):
 	
 	recovery_factor = 1 / mean_infectious_duration    	# 1 / day
