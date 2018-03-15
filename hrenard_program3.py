@@ -6,7 +6,7 @@ import numpy as np
 def runsim(
 	mean_infectious_duration = 10, 	         		# day
 	transmissibility = .6,                         		# infection / contact
-	contact_factor = .2,                          		# (contact / day) / person
+	contact_factor = .3,                          		# (contact / day) / person
 	mean_exposed = 2,                               	# day
 	mean_quarantine = 5,					# day
 	mean_death = 5,                                 	# day
