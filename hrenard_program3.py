@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def runsim(
-	mean_infectious_duration = 10, 	         		# day
+	mean_infectious_duration = 20, 	         		# day
 	transmissibility = .6,                         		# infection / contact
 	contact_factor = .8,                          		# (contact / day) / person
 	mean_incubation = 9,                               	# day
