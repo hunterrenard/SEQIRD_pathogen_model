@@ -8,8 +8,8 @@ def runsim(
 	transmissibility = .6,                         		# infection / contact
 	contact_factor = .2,                          		# (contact / day) / person
 	mean_exposed = 2,                               	# day
-	mean_quarantine = 2,					# day
-	mean_death = 1,                                 	# day
+	mean_quarantine = 1,					# day
+	mean_death = 2,                                 	# day
 	plot = True):
 	
 	recovery_factor = 1 / mean_infectious_duration    	# 1 / day
