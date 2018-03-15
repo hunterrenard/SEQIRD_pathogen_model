@@ -75,7 +75,7 @@ def runsim(
 		plt.plot(time_values, I, color="green", label="I")
 		plt.plot(time_values, R, color="orange", label="R")
 		plt.plot(time_values, D, color="black", label="D")
-		plt.xlabel("Time (Yearss)")
+		plt.xlabel("Time (Years)")
 		plt.ylabel("Population (People)")
 		plt.legend()
 		plt.show()
@@ -88,10 +88,11 @@ def main():
 	mids = np.arange(.1, 10, .1)
 	perc_infs = []
 
-	runsim(plot=True)
+	#runsim(plot = True)
+	runsim(transmissibility = 1, plot = True)
 
 	for mid in mids:
-		perc_inf = runsim(mid, plot=False)
+		perc_inf = runsim(mid, plot = False)
 		perc_infs.append(perc_inf)
 
 	plt.clf()
