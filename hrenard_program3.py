@@ -4,21 +4,21 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def runsim(
-	mean_infectious_duration = 10, 	         		# day
+	mean_infectious_duration = 10, 	         		# year
 	transmissibility = .6,                         		# infection / contact
-	contact_factor = .8,                          		# (contact / day) / person
-	mean_incubation = 9,                               	# day
-	mean_quarantine = 15,					# day
-	mean_death = 30,                                 	# day
+	contact_factor = .8,                          		# (contact / year) / person
+	mean_incubation = 9,                               	# year
+	mean_quarantine = 15,					# year
+	mean_death = 30,                                 	# year
 	plot = True):
 	
-	recovery_factor = 1 / mean_infectious_duration    	# 1 / day
-	incubation_factor = 1 / mean_incubation                      	# 1 / day
-	quarantine_factor = 1 / mean_quarantine                 # 1 / day
-	death_factor = 1 / mean_death	                        # 1 / day
+	recovery_factor = 1 / mean_infectious_duration    	# 1 / year
+	incubation_factor = 1 / mean_incubation                      	# 1 / year
+	quarantine_factor = 1 / mean_quarantine                 # 1 / year
+	death_factor = 1 / mean_death	                        # 1 / year
 
-	delta_t = .1                                    	# day
-	time_values = np.arange(0, 365 * 5, delta_t)
+	delta_t = .1                                    	# year
+	time_values = np.arange(0, 150, delta_t)
 
 	S = np.empty(len(time_values))
 	E = np.empty(len(time_values))
@@ -40,17 +40,17 @@ def runsim(
 
 		frac_susceptible =  S[i - 1] / (total_pop - Q[i - 1] - D[i - 1])		
 		
-		SI_contact_rate = I[i - 1] * frac_susceptible * contact_factor 		# contacts / day
+		SI_contact_rate = I[i - 1] * frac_susceptible * contact_factor 		# contacts / year
 		
-		exposed_rate = SI_contact_rate * transmissibility			# people / day
+		exposed_rate = SI_contact_rate * transmissibility			# people / year
 		
-		quarantine_rate = E[i - 1] * quarantine_factor				# people / day
-		quarantine_recovery_rate = Q[i - 1] * recovery_factor  			# recoveries / day
-		quarantine_death_rate = Q[i - 1] * death_factor				# deaths / day
+		quarantine_rate = E[i - 1] * quarantine_factor				# people / year
+		quarantine_recovery_rate = Q[i - 1] * recovery_factor  			# recoveries / year
+		quarantine_death_rate = Q[i - 1] * death_factor				# deaths / year
 		
-		infectious_rate = E[i - 1] * incubation_factor			# infections / day
-		infection_recovery_rate = I[i - 1] * recovery_factor  			# recoveries / day
-		infection_death_rate = I[i - 1] * death_factor				# deaths / day
+		infectious_rate = E[i - 1] * incubation_factor			# infections / year
+		infection_recovery_rate = I[i - 1] * recovery_factor  			# recoveries / year
+		infection_death_rate = I[i - 1] * death_factor				# deaths / year
 
 		# Primes.
 		S_prime = -exposed_rate
