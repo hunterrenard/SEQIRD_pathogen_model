@@ -89,7 +89,7 @@ def main():
 	perc_infs = []
 
 	#runsim(plot = True)
-	runsim(transmissibility = 1, plot = True)
+	runsim(plot = True)
 
 	for mid in mids:
 		perc_inf = runsim(mid, plot = False)
