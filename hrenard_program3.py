@@ -37,13 +37,17 @@ def runsim(
 	D[0] = 0
 
 	for i in range(1, len(time_values)):
-		# Flows.
-		frac_susceptible =  S[i - 1] / (total_pop - Q[i - 1])
-		SI_contact_rate = frac_susceptible * I[i - 1] * contact_factor 		# contacts / day
+
+		frac_susceptible =  S[i - 1] / (total_pop - Q[i - 1] - D[i - 1])		
+		
+		SI_contact_rate = I[i - 1] * frac_susceptible * contact_factor 		# contacts / day
+		
 		exposed_rate = SI_contact_rate * transmissibility			# people / day
+		
 		quarantine_rate = E[i - 1] * quarantine_factor				# people / day
 		quarantine_recovery_rate = Q[i - 1] * recovery_factor  			# recoveries / day
 		quarantine_death_rate = Q[i - 1] * death_factor				# deaths / day
+		
 		infectious_rate = SI_contact_rate * transmissibility 			# infections / day
 		infection_recovery_rate = I[i - 1] * recovery_factor  			# recoveries / day
 		infection_death_rate = I[i - 1] * death_factor				# deaths / day
@@ -77,7 +81,7 @@ def runsim(
 		plt.show()
 		plt.savefig("plot1.png")
 
-	return (I[len(I) - 1] + E[len(E) - 1] + Q[len(Q) - 1] + R[len(R) - 1] + D[len(D) - 1]) / total_pop * 100
+	return (total_pop - S[len(S) - 1]) / total_pop * 100
 
 
 def main():
