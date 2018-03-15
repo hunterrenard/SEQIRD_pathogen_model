@@ -27,7 +27,7 @@ def runsim(
 	R = np.empty(len(time_values))
 	D = np.empty(len(time_values))
 
-	total_pop = 1000
+	total_pop = 10000
 	
 	S[0] = total_pop - 100
 	E[0] = 0
