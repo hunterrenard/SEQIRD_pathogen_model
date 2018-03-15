@@ -18,7 +18,7 @@ def runsim(
 	death_factor = 1 / mean_death	                        # 1 / day
 
 	delta_t = .1                                    	# day
-	time_values = np.arange(0, 160, delta_t)
+	time_values = np.arange(0, 365 * 5, delta_t)
 
 	S = np.empty(len(time_values))
 	E = np.empty(len(time_values))
