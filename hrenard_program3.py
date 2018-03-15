@@ -67,7 +67,7 @@ def runsim(
 	if plot:
 		plt.plot(time_values, S, color="blue", label="S")
 		plt.plot(time_values, E, color="purple", label="E")
-		plt.plot(time_values, Q, color="grey", label="Q")
+		plt.plot(time_values, Q, color="red", label="Q")
 		plt.plot(time_values, I, color="green", label="I")
 		plt.plot(time_values, R, color="orange", label="R")
 		plt.plot(time_values, D, color="black", label="D")
