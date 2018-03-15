@@ -8,7 +8,7 @@ def runsim(
 	transmissibility = .6,                         		# infection / contact
 	contact_factor = .8,                          		# (contact / day) / person
 	mean_incubation = 9,                               	# day
-	mean_quarantine = 10,					# day
+	mean_quarantine = 15,					# day
 	mean_death = 25,                                 	# day
 	plot = True):
 	
