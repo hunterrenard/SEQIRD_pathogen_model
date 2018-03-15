@@ -74,10 +74,10 @@ def runsim(
 		plt.xlabel("Time (Days)")
 		plt.ylabel("Population (People)")
 		plt.legend()
-		#plt.show()
+		plt.show()
 		plt.savefig("plot1.png")
 
-	return (I[len(I) - 1] + R[len(R) - 1] + E[len(E) - 1] + D[len(D) - 1]) / total_pop * 100
+	return (I[len(I) - 1] + E[len(E) - 1] + Q[len(Q) - 1] + R[len(R) - 1] + D[len(D) - 1]) / total_pop * 100
 
 
 def main():
@@ -95,7 +95,7 @@ def main():
 	plt.xlabel("Mean Infected Duration (Days)")
 	plt.ylabel("% Ever Infected")
 	plt.legend()
-	#plt.show()
+	plt.show()
 	plt.savefig("plot2.png")
 
 main()
