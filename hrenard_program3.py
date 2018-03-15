@@ -50,7 +50,7 @@ def runsim(
 
 		# Primes.
 		S_prime = -infection_rate
-		E_prime = infection_rate - exposed_rate
+		E_prime = infection_rate - exposed_rate - quarantine_rate
 		Q_prime = quarantine_rate - quarantine_recovery_rate - quarantine_death_rate
 		I_prime = exposed_rate - infection_recovery_rate - infection_death_rate
 		R_prime = infection_recovery_rate + quarantine_recovery_rate
