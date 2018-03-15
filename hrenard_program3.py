@@ -59,7 +59,7 @@ def runsim(
 		# Stocks.
 		S[i] = S[i - 1] + S_prime * delta_t
 		E[i] = E[i - 1] + E_prime * delta_t
-		Q[i] = E[i - 1] + Q_prime * delta_t
+		Q[i] = Q[i - 1] + Q_prime * delta_t
 		I[i] = I[i - 1] + I_prime * delta_t
 		R[i] = R[i - 1] + R_prime * delta_t
 		D[i] = D[i - 1] + D_prime * delta_t
