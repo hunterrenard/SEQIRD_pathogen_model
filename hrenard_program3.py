@@ -7,13 +7,13 @@ def runsim(
 	mean_infectious_duration = 10, 	         		# day
 	transmissibility = .6,                         		# infection / contact
 	contact_factor = .4,                          		# (contact / day) / person
-	mean_exposed = 9,                               	# day
+	mean_incubation = 9,                               	# day
 	mean_quarantine = 10,					# day
 	mean_death = 8,                                 	# day
 	plot = True):
 	
 	recovery_factor = 1 / mean_infectious_duration    	# 1 / day
-	exposed_factor = 1 / mean_exposed                      	# 1 / day
+	incubation_factor = 1 / mean_incubation                      	# 1 / day
 	quarantine_factor = 1 / mean_quarantine                 # 1 / day
 	death_factor = 1 / mean_death	                        # 1 / day
 
@@ -48,7 +48,7 @@ def runsim(
 		quarantine_recovery_rate = Q[i - 1] * recovery_factor  			# recoveries / day
 		quarantine_death_rate = Q[i - 1] * death_factor				# deaths / day
 		
-		infectious_rate = SI_contact_rate * transmissibility 			# infections / day
+		infectious_rate = E[i - 1] * incubation_factor			# infections / day
 		infection_recovery_rate = I[i - 1] * recovery_factor  			# recoveries / day
 		infection_death_rate = I[i - 1] * death_factor				# deaths / day
 
