@@ -18,7 +18,7 @@ def runsim(
 	death_factor = 1 / mean_death	                        # 1 / year
 
 	delta_t = .1                                    	# year
-	time_values = np.arange(0, 150, delta_t)
+	time_values = np.arange(2018, 2168, delta_t)
 
 	S = np.empty(len(time_values))
 	E = np.empty(len(time_values))
@@ -75,7 +75,7 @@ def runsim(
 		plt.plot(time_values, I, color="green", label="I")
 		plt.plot(time_values, R, color="orange", label="R")
 		plt.plot(time_values, D, color="black", label="D")
-		plt.xlabel("Time (Days)")
+		plt.xlabel("Time (Yearss)")
 		plt.ylabel("Population (People)")
 		plt.legend()
 		plt.show()
@@ -96,7 +96,7 @@ def main():
 
 	plt.clf()
 	plt.plot(mids, perc_infs, color="black", label="% Infected")
-	plt.xlabel("Mean Infected Duration (Days)")
+	plt.xlabel("Mean Infected Duration (Years)")
 	plt.ylabel("% Ever Infected")
 	plt.legend()
 	plt.show()
