@@ -44,15 +44,15 @@ def runsim(
 		quarantine_rate = E[i - 1] * quarantine_factor				# people / day
 		quarantine_recovery_rate = Q[i - 1] * recovery_factor  			# recoveries / day
 		quarantine_death_rate = Q[i - 1] * death_factor				# deaths / day
-		infection_rate = SI_contact_rate * transmissibility 			# infections / day
+		infectious_rate = SI_contact_rate * transmissibility 			# infections / day
 		infection_recovery_rate = I[i - 1] * recovery_factor  			# recoveries / day
 		infection_death_rate = I[i - 1] * death_factor				# deaths / day
 
 		# Primes.
-		S_prime = -infection_rate
-		E_prime = infection_rate - exposed_rate - quarantine_rate
+		S_prime = -exposed_rate
+		E_prime = exposed_rate - infectious_rate - quarantine_rate
 		Q_prime = quarantine_rate - quarantine_recovery_rate - quarantine_death_rate
-		I_prime = exposed_rate - infection_recovery_rate - infection_death_rate
+		I_prime = infectious_rate - infection_recovery_rate - infection_death_rate
 		R_prime = infection_recovery_rate + quarantine_recovery_rate
 		D_prime = infection_death_rate + infection_death_rate
 
