@@ -9,7 +9,7 @@ def runsim(
 	contact_factor = .2,                          		# (contact / day) / person
 	mean_exposed = 2,                               	# day
 	mean_quarantine = 2,					# day
-	mean_death = 2,                                 	# day
+	mean_death = 1,                                 	# day
 	plot = True):
 	
 	recovery_factor = 1 / mean_infectious_duration    	# 1 / day
@@ -40,7 +40,7 @@ def runsim(
 		# Flows.
 		frac_susceptible =  S[i - 1] / (total_pop - Q[i - 1])
 		SI_contact_rate = frac_susceptible * I[i - 1] * contact_factor 		# contacts / day
-		exposed_rate = S[i - 1] * exposed_factor				# people / day
+		exposed_rate = SI_contact_rate * transmissibility			# people / day
 		quarantine_rate = E[i - 1] * quarantine_factor				# people / day
 		quarantine_recovery_rate = Q[i - 1] * recovery_factor  			# recoveries / day
 		quarantine_death_rate = Q[i - 1] * death_factor				# deaths / day
